@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="jpa-persistence"  transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<class>ma.marsamaroc.entite.MainCollaborateur</class>
+		<class>ma.marsamaroc.entite.MainCollaborateurPK</class>
+		<class>ma.marsamaroc.entite.Operation</class>
+		<class>ma.marsamaroc.entite.Accessoire</class>
+		<class>ma.marsamaroc.entite.Action</class>
+		<class>ma.marsamaroc.entite.Arret</class>
+		<class>ma.marsamaroc.entite.Collaborateur</class>
+		<class>ma.marsamaroc.entite.Commande</class>
+		<class>ma.marsamaroc.entite.CommandeMarchandise</class>
+		<class>ma.marsamaroc.entite.CommandeMarchandisePK</class>
+		<class>ma.marsamaroc.entite.Detailplanroulement</class>
+		<class>ma.marsamaroc.entite.Equipe</class>
+		<class>ma.marsamaroc.entite.Equipement</class>
+		<!--class>ma.marsamaroc.entite.Escale</class-->
+		<class>ma.marsamaroc.entite.FamilleEquipement</class>
+		<class>ma.marsamaroc.entite.Fonction</class>
+		<class>ma.marsamaroc.entite.Groupeposte</class>
+		<class>ma.marsamaroc.entite.Main</class>
+		<class>ma.marsamaroc.entite.MainArret</class>
+		<class>ma.marsamaroc.entite.MainArretPK</class>
+		<class>ma.marsamaroc.entite.MainPanneEquipement</class>
+		<class>ma.marsamaroc.entite.MainPanneEquipementPK</class>
+		<class>ma.marsamaroc.entite.Marchandise</class>
+		<class>ma.marsamaroc.entite.Menu</class>
+		<class>ma.marsamaroc.entite.Organisationtravail</class>
+		<class>ma.marsamaroc.entite.Panne</class>
+		<class>ma.marsamaroc.entite.Planroulement</class>
+		<class>ma.marsamaroc.entite.Port</class>
+		<class>ma.marsamaroc.entite.Poste</class>
+		<class>ma.marsamaroc.entite.Prestation</class>
+		<class>ma.marsamaroc.entite.Profil</class>
+		<class>ma.marsamaroc.entite.Shift</class>
+		<class>ma.marsamaroc.entite.Terminal</class>
+		<class>ma.marsamaroc.entite.Typemarchandise</class>
+		<class>ma.marsamaroc.entite.Typeprestation</class>
+		<class>ma.marsamaroc.entite.Utilisateur</class>
+		<class>ma.marsamaroc.entite.UtilisateurProfilTerminal</class>
+		<class>ma.marsamaroc.entite.UtilisateurProfilTerminalPK</class>
+		
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" />
+		</properties>
+	</persistence-unit>
+</persistence>

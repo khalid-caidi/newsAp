@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<h:head>
+	
+	<ui:insert name="headDeclaration">
+		<ui:include src="/template/declaration/headDeclaration.xhtml" />
+	</ui:insert>
+</h:head>
+<h:body onunload="">
+	<div id="header">
+		<ui:insert name="header">
+			<ui:include src="/template/header/heade.xhtml" />
+		</ui:insert>
+	</div>
+
+	<div class="main-container container-fluid">
+		<a class="menu-toggler" id="menu-toggler" href="#"> <span
+			class="menu-text"></span>
+		</a>
+		<ui:insert name="sidebar">
+				<ui:include src="/template/sidebar/sidebar.xhtml" />
+			</ui:insert>
+		<div class="main-content">
+			<div class="breadcrumbs" id="breadcrumbs">
+				<div  class="headerTemplate">
+					<h:form id="templateForm">
+						<h:panelGrid columns="6" >
+							<p:outputLabel value="Port :  " />
+							<p:selectOneMenu value="#{codePort}"  >
+                                <p:ajax listener="#{utilisateurController.onPortChange}" update="templateForm"
+                                        onstart="activeLoading()" oncomplete="desactiveLoading()" />
+                                <f:selectItems value="#{listPorts}" var="p" itemLabel="#{p.libPort}" itemValue="#{p.codPort}" />
+                            </p:selectOneMenu>
+
+							<p:outputLabel value="Terminal :  " style="margin-left: 12px" />
+							<p:selectOneMenu value="#{codeTerminal}" autoWidth="false" filter="true" filterMatchMode="contains">
+								<p:ajax listener="#{utilisateurController.onTerminalChange}" update="@this" partialSubmit="true" onstart="activeLoading()" oncomplete="desactiveLoading()" />
+								<f:selectItems value="#{listTerminaux}" var="s" itemLabel="#{s.libTerminal} - #{s.codTerminal}" itemValue="#{s.codTerminal}" />
+							</p:selectOneMenu>
+						</h:panelGrid>
+					</h:form>
+				</div>
+			</div>
+			<ui:insert name="content">
+				<ui:include src="/template/content/content.xhtml" />
+			</ui:insert>
+		</div>
+	</div>
+	
+	<div class="progress_modal"></div>
+	
+	<h:outputStylesheet>
+		.ui-selectonemenu-panel .ui-selectonemenu-items-wrapper {overflow-x: hidden !important;}
+	</h:outputStylesheet>
+	
+	<ui:insert name="footerDeclaration">
+		<ui:include src="/template/declaration/footerDeclaration.xhtml" />
+	</ui:insert>
+	
+	
+</h:body>
+</html>
